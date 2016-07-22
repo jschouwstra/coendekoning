@@ -40,11 +40,27 @@
 
 	$config['img_path'] = '../asset/uploads'; // Relative to domain name
 	if( $_SERVER['SERVER_NAME'] !== '127.0.0.1' ) {
-		$config['upload_path'] =  $_SERVER['DOCUMENT_ROOT'] .'/coen/asset/uploads'; // Physical path. [Usually works fine like this]
+		$config['upload_path'] =  $_SERVER['DOCUMENT_ROOT'] .'/asset/uploads'; // Physical path. [Usually works fine like this]
 	}
 	else {
-		$config['upload_path'] =  $_SERVER['DOCUMENT_ROOT'] .'/platipus/coendekoning/asset/uploads'; // Physical path. [Usually works fine like this]
+		$config['upload_path'] =  $_SERVER['DOCUMENT_ROOT'] .'/asset/uploads'; // Physical path. [Usually works fine like this]
 	}
+
+	// $config['img_path'] = '../asset/uploads'; // Relative to domain name
+	// if( $_SERVER['SERVER_NAME'] !== '127.0.0.1' ) {
+	// 	$config['upload_path'] =  $_SERVER['DOCUMENT_ROOT'] .'/coen/asset/uploads'; // Physical path. [Usually works fine like this]
+	// }
+	// else {
+	// 	$config['upload_path'] =  $_SERVER['DOCUMENT_ROOT'] .'/platipus/coendekoning/asset/uploads'; // Physical path. [Usually works fine like this]
+	// }
+
+
+
+
+
+
+
+
 	// $config['upload_path'] = $_SERVER['DOCUMENT_ROOT'] . $config['img_path']; // Physical path. [Usually works fine like this]
 
 
@@ -82,7 +98,7 @@
 | -------------------------------------------------------------------*/
 
 	
-	$config['max_width'] = 700;
+	$config['max_width'] = 0;
 
 
 /*-------------------------------------------------------------------
@@ -94,7 +110,7 @@
 | -------------------------------------------------------------------*/
 
 	
-	$config['max_height'] = 700;
+	$config['max_height'] = 0;
 
 
 /*-------------------------------------------------------------------

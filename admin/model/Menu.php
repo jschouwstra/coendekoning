@@ -85,19 +85,10 @@ class Menu{
         } //If not empty
     }
 
-    public function getAll($db,$mustBeActive) {
-        // true/false
-        if($mustBeActive){
-            $sql="SELECT * from menus WHERE active='1'
-            ";
-            $result = $db->query($sql);
-            return $result;  
-        }
-        else {
-            $sql=" SELECT * from menus ";
-            $result = $db->query($sql);
-            return $result;  
-        }
+    public function getAll( $db ) {
+        $sql=" SELECT * from menus ";
+        $result = $db->query($sql);
+        return $result;  
     }
     public function deleteById($db,$menuId) {
         $sql = "DELETE FROM menus WHERE id='$menuId'

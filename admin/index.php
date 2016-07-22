@@ -1,15 +1,21 @@
 <?php
     ob_start();
 	session_start();
-	error_reporting(E_ALL ^ E_NOTICE);
-    //ini_set('display_errors',0);
-    //error_reporting(E_ALL);
+
+	//no warnings:
+    //error_reporting(E_ALL ^ E_NOTICE);
+    
+    //show all errors and warnings:
+    ini_set('display_errors',0);
+    error_reporting(E_ALL);
+    
+
 if( $_SERVER['SERVER_NAME'] !== '127.0.0.1' ) {
     // Finished product
-    //$domainUrl = "http://coendekoning.com"; 
+    $domainUrl = "http://coendekoning.com";
 
     // Demo
-    $domainUrl = "http://jelleschouwstra.nl/coen"; 
+    //$domainUrl = "http://jelleschouwstra.nl/coen"; 
 }
 else {
     $domainUrl = "http://127.0.0.1/platipus/coendekoning";

@@ -57,16 +57,18 @@ if(!isset($_SESSION['id'])){
 		</div>
 	</div></br>
 	<p>
+		<input type="checkbox" name="showResult"> &nbsp; Show result after update</br></br>
 		<input class="btn btn-success" type="submit" value="Create" name="newPageSubmit">
 	</p>
 </form>
 
 <?php
 if(isset($_POST['newPageSubmit'])) {
+		$showResult = $_POST['showResult'];
 		$pageName = $_POST['name'];
 		$pageContent = $_POST['content'];
 		$pageIndependent = $_POST['independent']; 
-		$page->create($db,$pageName,$pageContent,$pageIndependent);
+		$page->create($db,$pageName,$pageContent,$pageIndependent,$showResult);
 } //if form is submitted
 
 ?>

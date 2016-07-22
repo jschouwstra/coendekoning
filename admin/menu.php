@@ -20,7 +20,7 @@ $user = new User( $db );
 
         <?php
           if( $_SERVER['SERVER_NAME'] !== '127.0.0.1' ) {
-            $homeURL = "http://www.jelleschouwstra.nl/coen";
+            $homeURL = "http://www.coendekoning.com";
 
           }
           else {

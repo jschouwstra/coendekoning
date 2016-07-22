@@ -35,7 +35,7 @@ while($row = $getPage->fetch_assoc()){
 				<?php
 				$currentPage = $page->getCurrentPage( $db,$pageID );
 				while($row = $currentPage->fetch_assoc()) {
-					echo htmlspecialchars_decode($row['content']);
+					echo $row['content'];
 				}
 				?>
 			</div>

@@ -32,33 +32,6 @@ while($row = $getPage->fetch_assoc()){
 			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-lg-11">
-			<div class="panel panel-primary">
-				<div class="panel-heading">Add Thumbnail</div>
-				<div class="panel-body">
-					<?php
-					$currentPageID = $page->getCurrentPage( $db,$pageID );
-					while($row = $currentPageID->fetch_assoc()) {
-						echo "<div class=\"row\">";
-							echo "<div class=\"col-lg-4\">";
-								echo "<div class=\"panel panel-primary\">";
-									echo "<div class=\"panel-heading\">Thumbnail</div>";
-										echo "<div class=\"panel-body\">";
-											echo ($row['thumbnail'] ?"<div><img style=\"max-width:400px;\" src=".$row['thumbnail']."></div> </br>" : "<span style=\"font-size:80px;\" class=\"glyphicon glyphicon-picture\"></span></br>No image available </br>");
-									echo "</div>";
-								echo "</div>";
-							echo "</div>";
-						echo "</div>";
-						echo "<p></br><a href=\"index.php?view=edit_page_add_thumbnail&id=".$row['id']." \"><span class=\"btn btn-success\">Add thumbnail</span></a></p>";					
-					}
-					
-					?>
-
-				</div>
-			</div>
-		</div>
-	</div>	
 	
 	<div class="row">
 		<div class="col-lg-11">
@@ -76,17 +49,20 @@ while($row = $getPage->fetch_assoc()){
 		</div>
 	</div>
 	<p>
-		<input class="btn btn-success" type="submit" value="Update" name="editPageSubmit">
-	</p>	
+		<input type="checkbox" name="showResult"> &nbsp; Show result after update</br></br>
+		<input class="btn btn-success" type="submit" value="Update" name="editPageSubmit">&nbsp;
+	</p>
+
 </form>
 
 
 
 <?php
+	$showResult= $_POST['showResult'];
 	$pageName = $_POST['name'];
 	$pageContent = $_POST['content'];
 	if (isset( $_POST['editPageSubmit'] ) ) {
-		$page->editbyId($db,$pageID,$pageName,$pageContent);
+		$page->editbyId($db,$pageID,$pageName,$pageContent,$showResult);
 	}
 ?>
 
@@ -103,8 +79,8 @@ while($row = $getPage->fetch_assoc()){
           toolbar: "insertfile undo redo | styleselect | bold italic | bullist numlist | link image jbimages",
           relative_urls: false,
             image_class_list: [
-				{title: 'None', value: ''},
 				{title: 'Responsive', value: 'responsive'},
+				{title: 'None', value: ''},
 		  	]
     });
 </script>

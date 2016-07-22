@@ -1,12 +1,15 @@
 <?php
     ob_start();
     session_start();
-    error_reporting(E_ALL ^ E_NOTICE);
-    // error_reporting(-1);
-    // ini_set('display_errors', 'On');
+    // error_reporting(E_ALL ^ E_NOTICE);
+     error_reporting(-1);
+     ini_set('display_errors', 'On');
 if( $_SERVER['SERVER_NAME'] !== '127.0.0.1' ) {
     // Production
-    $domainUrl = "http://coendekoning.com"; 
+    //$domainUrl = "http://coendekoning.com"; 
+
+    //production test url
+    $domainUrl = "http://coendekoning.com/dev"; 
 
     // // Demo
     // $domainUrl = "http://jelleschouwstra.nl/coen"; 
@@ -22,9 +25,12 @@ else {
     $menu = new Menu($db);
     $page = new Page($db);
 
+    //define variable even if empty
+    if (empty($_REQUEST['pageID'])) $_REQUEST['pageID'] = '';
+    if (empty($_REQUEST['menuID'])) $_REQUEST['menuID'] = '';
 
     $pageID = $_REQUEST['pageID'];
-    $menuID= $_REQUEST['menuID'];
+    $menuID = $_REQUEST['menuID'];
 
     $homepageID = "33";
 

@@ -1,7 +1,7 @@
 <?php
 $page = new Page( $db );
 $pageID = $_REQUEST['id'];
-echo $domainUrl;
+//echo $domainUrl;
 $getPage = $page->getCurrentPage($db,$pageID);
 while($row = $getPage->fetch_assoc()){
 	echo "<h1>Add thumbnail for page: " .$row['name']. "</h1>";
@@ -19,15 +19,21 @@ while($row = $getPage->fetch_assoc()){
 					<?php
 					$currentPage = $page->getCurrentPage( $db,$pageID );
 					while($row = $currentPage->fetch_assoc()) {
-						echo "<img style=\"width:220px;height:170px;\" src=\"".$row['thumbnail']."\">";
+						if($row['thumbnail']) {
+							echo "<img style=\"width:220px;height:170px;\" src=\"".$row['thumbnail']."\">";		
+						}
+						else {
+							echo "<span style=\"font-size: 80px;\" class=\"glyphicon glyphicon-ban-circle\"></span></br>No thumbnail</br></br>";		
+						}
+						
 					}
 
 					?>
 
 					<form method="post" enctype="multipart/form-data">
 						Select image to upload:
-						<input type="file" name="fileToUpload" id="fileToUpload">
-						<input type="submit" value="Upload Image" name="uploadImage">	
+						<input value="Browse" type="file" name="fileToUpload" id="fileToUpload"></br>
+						<input class="btn btn-success" type="submit" value="Upload Image" name="uploadImage">	
 						</br>
 					</form>
 
